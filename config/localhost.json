@@ -1,0 +1,5 @@
+{
+    "port":3000,
+    "url":"mongodb+srv://hetvi01:mongo_01@backenddb.oe9ottm.mongodb.net/attendance_management_system?retryWrites=true&w=majority&appName=backendDB",
+    "secretKey":"HETVIPAREKH"
+}
