@@ -14,4 +14,28 @@ export class ClassService{
             return { status: false, message: error.message }
         }
     }
+    async getClassById(classId:string){
+        try {
+            const response=await Class.findById(classId);
+            if (response) {
+                return { status: true, message:response}
+            } else {
+                throw new Error(`ERROR IN GETTING CLASS FOR DATE `)
+            }
+        } catch (error: any) {
+            return { status: false, message: error.message }
+        }
+    }
+    async getClass(){
+        try {
+            const response=await Class.find({});
+            if (response) {
+                return { status: true, message:response,length:response.length}
+            } else {
+                throw new Error(`ERROR IN GETTING CLASS FOR DATE `)
+            }
+        } catch (error: any) {
+            return { status: false, message: error.message }
+        }
+    }
 }

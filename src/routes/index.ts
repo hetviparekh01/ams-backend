@@ -4,6 +4,6 @@ import classRoute from "./class.routes";
 
 const route=Router();
 route.use('/user',userRoute)
-route.unsubscribe('/class',classRoute)
+route.use('/class',classRoute)
 
 export default route

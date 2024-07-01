@@ -14,14 +14,33 @@ export class ClassController{
                 return res.json({status:false,message:response.message})
             }  
         } catch (error:any) {
-            return res.json({status:false,message:"INTERNAL SERVER ERROR!!"}) 
+            return res.json({status:false,message:error.message}) 
         }
     }
-    async getClass(){
+    async getClass(req:Request,res:Response){
         try {
-            console.log("hetvi");
+            const response=await classService.getClass();
+            if(response.status){
+                return res.json({status:true,message:response.message})
+            }else{
+                return res.json({status:false,message:response.message})
+            } 
         } catch (error:any) {
-            console.log(error.message);
+            return res.json({status:false,message:error.message})         
         }
     }
+    async getClassId(req:Request,res:Response){
+        try {
+            const classId=req.params.id
+            const response=await classService.getClassById(classId);
+            if(response.status){
+                return res.json({status:true,message:response.message})
+            }else{
+                return res.json({status:false,message:response.message})
+            } 
+        } catch (error:any) {
+            return res.json({status:false,message:error.message})         
+        }
+    }
+  
 }
